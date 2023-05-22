@@ -62,7 +62,6 @@ async function onBtnClick() {
   try {
     const response = await fetchImages(searchQuery, page);
     totalImages += response.hits.length;
-    console.log(totalImages, response.totalHits);
     if (response.hits.length < 40 || totalImages >= response.totalHits) {
       loadBtnToggle();
       // window.removeEventListener("scroll", handleScroll);
