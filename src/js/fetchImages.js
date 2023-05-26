@@ -9,13 +9,4 @@ export default async function fetchImages(value, page) {
   );
 
   return data;
-  
-  // return axios
-  //   .get(
-  //     `${URL}?key=${API_KEY}&q=${value}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`
-  //   )
-  //   .then(({ data }) => {
-  //     console.log(data);
-  //     return data;
-  //   });
 }

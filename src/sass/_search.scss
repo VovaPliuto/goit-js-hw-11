@@ -9,6 +9,7 @@
 }
 
 form {
+  // width: 90%;
   position: relative;
 }
 
@@ -29,13 +30,14 @@ input {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  justify-content: start;
+  justify-content: center;
 
   padding: 80px 20px 30px;
 }
 
 .photo-card {
-  width: calc((100% - 60px) / 4);
+  // width: calc((100% - 60px) / 4);
+  width: calc(100% - 20px);
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 0px 0px 4px 4px;
@@ -53,7 +55,7 @@ input {
   gap: 20px;
   align-items: center;
   justify-content: center;
-  font-size: smaller;
+  font-size: 10px;
 }
 
 .info-item {
@@ -81,3 +83,33 @@ input {
 .load-more.hidden {
   display: none;
 }
+
+@media screen and (min-width: 610px) {
+  .gallery {
+    margin: 0 auto;
+  }
+  
+  .photo-card {
+    width: calc((100% - 60px) / 2);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  
+  .info {
+    font-size: smaller;
+  }
+
+  .photo-card {
+    width: calc((100% - 60px) / 3);
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  
+  .photo-card {
+    width: calc((100% - 60px) / 4);
+  }
+}
+
+

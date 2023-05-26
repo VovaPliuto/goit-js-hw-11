@@ -21,11 +21,16 @@ async function onSubmitForm(e) {
   totalImages = 0;
   // window.addEventListener('scroll', handleScroll);
   refs.listEl.innerHTML = '';
-
-  if (searchQuery === '') return Notify.info('Enter some query text');
-
+  refs.arrowDivEl.removeAttribute("style");
+  
+  if (searchQuery === '') {
+    loadBtnToggle();
+    return Notify.info('Enter some query text');
+  }
+  
   if (!refs.loadMoreBtn.classList.contains('hidden')) loadBtnToggle();
 
+  refs.arrowDivEl.style.display = "none";
   try {
     const response = await fetchImages(searchQuery, page);
 
@@ -40,6 +45,7 @@ async function onSubmitForm(e) {
       response.hits.length === 40
     )
       loadBtnToggle();
+    
 
     const markup = await markupCreate(response.hits);
 

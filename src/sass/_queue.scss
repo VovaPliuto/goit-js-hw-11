@@ -1,0 +1,31 @@
+.arrow-up {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  fill: tomato;
+
+  animation-name: arrowMove;
+  animation-duration: 1500ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.queue-text {
+  text-align: center;
+  font-size: 30px;
+}
+
+.queue-container {
+  padding: 0 20px;
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateY(0);
+  }
+  
+  100% {
+    transform: translateY(-40px);
+  }
+}
