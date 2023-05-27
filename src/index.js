@@ -19,22 +19,23 @@ async function onSubmitForm(e) {
   clearInput();
   page = 1;
   totalImages = 0;
+  // refs.arrowDivEl.removeAttribute('style');
   // window.addEventListener('scroll', handleScroll);
   refs.listEl.innerHTML = '';
-  refs.arrowDivEl.removeAttribute("style");
-  
-  if (searchQuery === '') {
-    loadBtnToggle();
-    return Notify.info('Enter some query text');
-  }
-  
+
   if (!refs.loadMoreBtn.classList.contains('hidden')) loadBtnToggle();
 
-  refs.arrowDivEl.style.display = "none";
+  if (searchQuery === '') {
+    // if (!refs.loadMoreBtn.classList.contains('hidden')) loadBtnToggle();
+    return Notify.info('Enter some query text');
+  }
+
+  refs.arrowDivEl.style.display = 'none';
   try {
     const response = await fetchImages(searchQuery, page);
 
     if (response.hits.length === 0) {
+      refs.arrowDivEl.removeAttribute('style');
       return Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
@@ -45,7 +46,6 @@ async function onSubmitForm(e) {
       response.hits.length === 40
     )
       loadBtnToggle();
-    
 
     const markup = await markupCreate(response.hits);
 
@@ -76,7 +76,7 @@ async function onBtnClick() {
     const markup = await markupCreate(response.hits);
 
     markupRender(markup);
-      
+
     scrollBy();
     gallery.refresh();
   } catch (error) {
