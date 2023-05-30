@@ -22,6 +22,7 @@ async function onSubmitForm(e) {
   // refs.arrowDivEl.removeAttribute('style');
   // window.addEventListener('scroll', handleScroll);
   refs.listEl.innerHTML = '';
+  refs.arrowDivEl.removeAttribute('style');
 
   if (!refs.loadMoreBtn.classList.contains('hidden')) loadBtnToggle();
 
